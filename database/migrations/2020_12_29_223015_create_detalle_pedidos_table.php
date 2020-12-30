@@ -15,6 +15,12 @@ class CreateDetallePedidosTable extends Migration
     {
         Schema::create('detalle_pedidos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('pedido_id')->nullable()->constrained('pedidos')->onDelete('cascade'); 
+            $table->foreignId('modelo_id')->nullable()->constrained('modelos')->onDelete('cascade'); 
+            $table->integer('talla');
+            $table->integer('cantidad');
+            $table->json('opciones')->nullable();
+            $table->string('observaciones', 250)->nullable();
             $table->timestamps();
         });
     }

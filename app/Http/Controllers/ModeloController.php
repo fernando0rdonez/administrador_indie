@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ZapatillaController extends Controller
+class ModeloController extends Controller
 {
     //
 }

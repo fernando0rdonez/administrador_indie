@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Reata extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['nombre', 'logo', 'color', 'code', 'imagen', 'tipo', 'genero'];
 }

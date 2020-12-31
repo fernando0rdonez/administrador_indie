@@ -33,7 +33,11 @@ Route::get('/modelo/{modelo}', [App\Http\Controllers\ModeloController::class,'sh
 Route::post('/modelo/{modelo}', [App\Http\Controllers\ModeloController::class,'edit'])->name('modelo.edit');
 
 
-
+Route::get('/cliente', [App\Http\Controllers\ClienteController::class, 'index'])->name('cliente.index');
+Route::post('/cliente', [App\Http\Controllers\ClienteController::class,'create'])->name('cliente.create');
+Route::get('/cliente/nuevo', [App\Http\Controllers\ClienteController::class,'new'])->name('cliente.new');
+Route::get('/cliente/{cliente}', [App\Http\Controllers\ClienteController::class,'show'])->name('cliente.show');
+Route::post('/cliente/{cliente}', [App\Http\Controllers\ClienteController::class,'edit'])->name('cliente.edit');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

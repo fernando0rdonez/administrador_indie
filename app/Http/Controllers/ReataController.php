@@ -81,9 +81,8 @@ class ReataController extends Controller
     }
     public function index(Request $request)
     {
-        $usuario = 0;
         $reata = Reata::paginate(15);
-        return view('Reatas.index',['reatas'=>$reata, 'usuario'=>$usuario]);
+        return view('Reatas.index',['reatas'=>$reata]);
     }
 
 }

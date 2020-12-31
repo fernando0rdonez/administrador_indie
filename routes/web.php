@@ -25,4 +25,15 @@ Route::get('/reata/nuevo', [App\Http\Controllers\ReataController::class,'new'])-
 Route::get('/reata/{reata}', [App\Http\Controllers\ReataController::class,'show'])->name('reata.show');
 Route::post('/reata/{reata}', [App\Http\Controllers\ReataController::class,'edit'])->name('reata.edit');
 
+
+Route::get('/modelo', [App\Http\Controllers\ModeloController::class, 'index'])->name('modelo.index');
+Route::post('/modelo', [App\Http\Controllers\ModeloController::class,'create'])->name('modelo.create');
+Route::get('/modelo/nuevo', [App\Http\Controllers\ModeloController::class,'new'])->name('modelo.new');
+Route::get('/modelo/{modelo}', [App\Http\Controllers\ModeloController::class,'show'])->name('modelo.show');
+Route::post('/modelo/{modelo}', [App\Http\Controllers\ModeloController::class,'edit'])->name('modelo.edit');
+
+
+
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

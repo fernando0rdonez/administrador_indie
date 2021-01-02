@@ -23,7 +23,20 @@ class ClienteController extends Controller
         return view('Cliente.index',['clientes'=>$clientes]);
 
     }
+    public function search(Request $request)
+    {
+        $query =  Cliente::whereNotNull('id');
+        $value =  $request->value;
+        $query->where(function($query) use ($value){
+            return $query
+            ->where('nombre', 'LIKE', '%'.$value.'%')
+            ->orWhere('cedula', 'LIKE', '%'.$value.'%')
+            ->orWhere('ciudad', 'LIKE', '%'.$value.'%');
+        });
+        $respuesta = $query->take(6)->get();
+        return $respuesta;
 
+    }
     public function new(Request $request)
     {
         return view('Cliente.new');

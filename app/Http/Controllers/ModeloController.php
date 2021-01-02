@@ -24,6 +24,25 @@ class ModeloController extends Controller
         return view('Modelo.new',['reatas'=>$reatas]);
 
     }
+
+    public function search(Request $request)
+    {
+        $query =  Modelo::whereNotNull('reata_id');
+        $value =  $request->value;
+        $query->where(function($query) use ($value){
+            return $query
+            ->where('nombre', 'LIKE', '%'.$value.'%')
+            ->orWhere('codigo', 'LIKE', '%'.$value.'%')
+            ->orWhere('eva', 'LIKE', '%'.$value.'%')
+            ->orWhere('fibra', 'LIKE', '%'.$value.'%')
+            ->orWhere('genero', 'LIKE', '%'.$value.'%')
+            ->orWhere('keywords', 'LIKE', '%'.$value.'%')
+            ->orWhere('nombre', 'LIKE', '%'.$value.'%');
+        });
+        $respuesta = $query->take(6)->get();
+        return $respuesta;
+
+    }
     public function index(Request $request)
     {
         $modelos = Modelo::paginate(15);

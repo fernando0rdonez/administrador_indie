@@ -15,7 +15,6 @@
 @endif
 
 <div class="container mx-auto">
- 
     <div class="md:grid md:grid-cols-3 md:gap-6">
       <div class="mt-5 md:mt-0 md:col-span-2">
         <form action="{{route('modelo.create')}}" method="POST" enctype="multipart/form-data">

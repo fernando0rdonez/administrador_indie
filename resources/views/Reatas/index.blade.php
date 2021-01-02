@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container mx-auto">
+  <h1 class="text-2xl my-5"> Reatas </h1>
 
     <div>
     <table class="min-w-full table-auto">

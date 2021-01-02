@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container mx-auto">
+  <h1 class="text-2xl my-5"> Clientes </h1>
+
     <div>
     <table class="min-w-full table-auto">
       <thead class="justify-between">

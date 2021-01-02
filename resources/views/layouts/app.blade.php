@@ -15,69 +15,105 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+        <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+
+
+        <section class="h-screen w-screen bg-gray-200 flex flex-col-reverse sm:flex-row min-h-0 min-w-0 overflow-hidden">
+          <aside class="sm:h-full sm:w-16 w-full h-12 bg-gray-800 text-gray-200">
+            <ul class="text-center flex flex-row sm:flex-col w-full">
+              <li class="h-14 border-b border-gray-900 hidden sm:block">
+                <a id="page-icon" href="{{ route('pedido.index') }}" class="h-full w-full hover:bg-gray-700 block p-3">
+                  <img class="object-contain h-full w-full" src="https://avatars1.githubusercontent.com/u/6157842?v=4"
+                    alt="open-source" />
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+              </li>
+              <li class="sm:border-b border-gray-900 flex-1 sm:w-full" title="Inbox">
+                <a id="page-icon"  href="{{ route('pedido.index') }}" class="h-full w-full hover:bg-gray-700 block p-3">
+                  <i class="fas fa-inbox fill-current"> </i>
+                </a>
+              </li>
+              <li class="sm:border-b border-gray-900 flex-1 sm:w-full" title="Settings">
+                <a id="page-icon" href="{{ route('cliente.index') }}" class="h-full w-full hover:bg-gray-700 block p-3">
+                  <i class="fas fa-cogs fill-current"> </i>
+                </a>
+              </li>
+              <li class="sm:border-b border-gray-900 flex-1 sm:w-full" title="Users">
+                <a id="page-icon"  href="{{ route('modelo.index') }}" class="h-full  w-full hover:bg-gray-700 block p-3">
+                  <i class="fas fa-users fill-current"> </i>
+                </a>
+              </li>
+              <li class="sm:border-b border-gray-900 flex-1 sm:w-full" title="Users">
+                <a id="page-icon" href="{{ route('reata.index') }}" class="h-full  w-full hover:bg-gray-700 block p-3">
+                  <i class="fas fa-users fill-current"> </i>
+                </a>
+              </li>
+            </ul>
+          </aside>
+          <main class="sm:h-full flex-1 flex flex-col min-h-0 min-w-0 overflow-auto">
+            <nav class="border-b bg-white px-6 py-2 flex items-center min-w-0 h-14">
+              <h1 class="font-semibold text-lg"></h1>
+              <span class="flex-1"></span>
+              <span class="mr-2">
+                <input type="text" placeholder="Search"
+                  class="w-full border-2 px-2 py-1 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent bg-gray-300 focus:bg-gray-100" />
+              </span>
+              <button
+                class="ml-auto border rounded-full ml-2 w-10 h-10 text-center leading-none text-gray-200 bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                <i class="fas fa-user fill-current"></i>
+              </button>
+            </nav>
+            <section class="flex-1 pt-3 md:p-6 lg:mb-0 lg:min-h-0 lg:min-w-0">
+              <div class="flex flex-col lg:flex-row h-full w-full">
+               
+                <main class="py-4 mx-auto">
+                    @yield('content')
+                </main>
+                
+        
+              </div>
+            </section>
+            <footer class="px-6 py-3 border-t flex w-full items-end">
+           
+            </footer>
+          </main>
+        </section>
+        
+        <style>
+          @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+        
+        body {
+          font-family: "Nunito", sans-serif;
+        }
+        
+        main {
+          font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+        
+        #page-icon img {
+          -webkit-animation: cssfilter 3s infinite;
+        }
+        
+        
+        @-webkit-keyframes cssfilter {
+          0%, 100%  {  
+            filter: invert(75%) drop-shadow(0px 0px 2px blue) 
+          }
+          
+          50% { 
+            filter: invert(0%) drop-shadow(0px 0px 1px teal); 
+          }
+        }
+        </style>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-                            
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
     </div>
 </body>
 </html>

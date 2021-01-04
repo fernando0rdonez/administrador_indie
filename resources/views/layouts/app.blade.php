@@ -56,6 +56,11 @@
                   <i class="fas fa-users fill-current"> </i>
                 </a>
               </li>
+              <li class="sm:border-b border-gray-900 flex-1 sm:w-full" title="Users">
+                <a id="page-icon" href="{{ route('pedido.materiales') }}" class="h-full  w-full hover:bg-gray-700 block p-3">
+                  <i class="fas fa-users fill-current"> </i>
+                </a>
+              </li>
             </ul>
           </aside>
           <main class="sm:h-full flex-1 flex flex-col min-h-0 min-w-0 overflow-auto">
@@ -64,10 +69,10 @@
               <span class="flex-1"></span>
               <span class="mr-2">
                 <input type="text" placeholder="Search"
-                  class="w-full border-2 px-2 py-1 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent bg-gray-300 focus:bg-gray-100" />
+                  class="w-full border-2 px-2 py-1  border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent bg-gray-300 focus:bg-gray-100" />
               </span>
               <button
-                class="ml-auto border rounded-full ml-2 w-10 h-10 text-center leading-none text-gray-200 bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                class="border rounded-full ml-2 w-10 h-10 text-center leading-none text-gray-200 bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                 <i class="fas fa-user fill-current"></i>
               </button>
             </nav>

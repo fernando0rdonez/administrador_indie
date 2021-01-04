@@ -44,6 +44,7 @@ Route::post('/cliente/{cliente}', [App\Http\Controllers\ClienteController::class
 Route::get('/pedido', [App\Http\Controllers\PedidoController::class, 'index'])->name('pedido.index');
 Route::post('/pedido', [App\Http\Controllers\PedidoController::class,'create'])->name('pedido.create');
 Route::get('/pedido/nuevo', [App\Http\Controllers\PedidoController::class,'new'])->name('pedido.new');
+Route::get('/pedido/materiales', [App\Http\Controllers\PedidoController::class,'materiales'])->name('pedido.materiales');
 Route::get('/pedido/{pedido}', [App\Http\Controllers\PedidoController::class,'show'])->name('pedido.show');
 Route::post('/pedido/{pedido}', [App\Http\Controllers\PedidoController::class,'edit'])->name('pedido.edit');
 

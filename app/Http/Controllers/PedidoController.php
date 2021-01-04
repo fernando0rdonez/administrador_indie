@@ -37,6 +37,22 @@ class PedidoController extends Controller
         $pedidos = $query->paginate(15);
         return view('Pedido.index',['pedidos'=>$pedidos]);
     }
+
+    public function materiales(Request $request)
+    {
+        $query =  Pedido::where('fecha_envio', $request->date );
+        $pedidos = $query->get();
+        
+        $reatas =  [] ;
+        $collection = collect([]);
+        foreach ($pedidos as $key => $pedido) {
+            $collection = collect([ $collection,$pedido->detalle ]);
+            $collection = $collection->collapse(); 
+        }
+        \Log::info($collection);
+        return view('Materiales.index',['pedidos'=>$pedidos]);
+    }
+    
     //
     public function create(Request $request)
     {

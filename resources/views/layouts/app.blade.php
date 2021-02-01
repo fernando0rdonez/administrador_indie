@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Indie Sandalias</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -15,16 +15,15 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+    <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/tabla.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
 
 
         <section class="h-screen w-screen bg-gray-200 flex flex-col-reverse sm:flex-row min-h-0 min-w-0 overflow-hidden">
@@ -36,29 +35,29 @@
                     alt="open-source" />
                 </a>
               </li>
-              <li class="sm:border-b border-gray-900 flex-1 sm:w-full" title="Inbox">
+              <li class="sm:border-b border-gray-900 flex-1 sm:w-full" title="Pedidos">
                 <a id="page-icon"  href="{{ route('pedido.index') }}" class="h-full w-full hover:bg-gray-700 block p-3">
                   <i class="fas fa-inbox fill-current"> </i>
                 </a>
               </li>
-              <li class="sm:border-b border-gray-900 flex-1 sm:w-full" title="Settings">
+              <li class="sm:border-b border-gray-900 flex-1 sm:w-full" title="Clientes">
                 <a id="page-icon" href="{{ route('cliente.index') }}" class="h-full w-full hover:bg-gray-700 block p-3">
-                  <i class="fas fa-cogs fill-current"> </i>
+                <i class="fas fa-users fill-current"> </i>
                 </a>
               </li>
-              <li class="sm:border-b border-gray-900 flex-1 sm:w-full" title="Users">
+              <li class="sm:border-b border-gray-900 flex-1 sm:w-full" title="Modelos">
                 <a id="page-icon"  href="{{ route('modelo.index') }}" class="h-full  w-full hover:bg-gray-700 block p-3">
-                  <i class="fas fa-users fill-current"> </i>
+                  <i class="fas fa-shoe-prints fill-current"></i>
                 </a>
               </li>
-              <li class="sm:border-b border-gray-900 flex-1 sm:w-full" title="Users">
+              <li class="sm:border-b border-gray-900 flex-1 sm:w-full" title="Reatas">
                 <a id="page-icon" href="{{ route('reata.index') }}" class="h-full  w-full hover:bg-gray-700 block p-3">
-                  <i class="fas fa-users fill-current"> </i>
+                <i class="fas fa-grip-lines"></i>
                 </a>
               </li>
-              <li class="sm:border-b border-gray-900 flex-1 sm:w-full" title="Users">
+              <li class="sm:border-b border-gray-900 flex-1 sm:w-full" title="Materiales">
                 <a id="page-icon" href="{{ route('pedido.materiales') }}" class="h-full  w-full hover:bg-gray-700 block p-3">
-                  <i class="fas fa-users fill-current"> </i>
+                <i class="fab fa-accusoft"></i>
                 </a>
               </li>
             </ul>
@@ -79,7 +78,7 @@
             <section class="flex-1 pt-3 md:p-6 lg:mb-0 lg:min-h-0 lg:min-w-0">
               <div class="flex flex-col lg:flex-row h-full w-full">
                
-                <main class="py-4 mx-auto">
+                <main class="py-4 mx-auto w-full md:w-auto md:mt-15 lg:px-12 xl:px-16">
                     @yield('content')
                 </main>
                 

@@ -24,25 +24,29 @@
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
                   <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
-                  <input type="text" name="nombre"  autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                  <input type="text" required name="nombre"  autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
   
                 <div class="col-span-6 sm:col-span-3">
                   <label for="superficie" class="block text-sm font-medium text-gray-700">superficie</label>
-                  <input type="text" name="superficie"  class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                  <input type="text" required name="superficie"  class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
   
                 <div class="col-span-6 sm:col-span-3">
                   <label for="valor" class="block text-sm font-medium text-gray-700">valor</label>
-                  <input type="text" name="valor"  autocomplete="costo" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                  <input type="text" required name="valor"  autocomplete="costo" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
                 <div class="col-span-6 sm:col-span-3">
                     <label for="costo" class="block text-sm font-medium text-gray-700">Costo</label>
                     <input type="text" name="costo"  autocomplete="costo" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                   </div>
                   <div class="col-span-6 sm:col-span-3">
+                    <label for="codigo" class="block text-sm font-medium text-gray-700">código</label>
+                    <input type="text" required name="codigo"  autocomplete="codigo" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
                     <label for="keywords" class="block text-sm font-medium text-gray-700">Keywords</label>
-                    <input type="text" name="keywords"  autocomplete="costo" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                    <input type="text" required name="keywords"  autocomplete="keywords" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                   </div>
                 <div class="col-span-6 sm:col-span-3">
                     <label for="foto" class="block text-sm font-medium text-gray-700">Foto</label>

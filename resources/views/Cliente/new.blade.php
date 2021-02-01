@@ -25,25 +25,25 @@
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
                   <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
-                  <input type="text" name="nombre"  autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                  <input type="text" required name="nombre"  autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
   
                 <div class="col-span-6 sm:col-span-3">
                   <label for="ciudad" class="block text-sm font-medium text-gray-700">ciudad</label>
-                  <input type="text" name="ciudad"  class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                  <input type="text" required name="ciudad"  class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
   
                 <div class="col-span-6 sm:col-span-3">
                   <label for="cedula" class="block text-sm font-medium text-gray-700">cedula</label>
-                  <input type="text" name="cedula"  autocomplete="cedula" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                  <input type="text"  required name="cedula"  autocomplete="cedula" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
                 <div class="col-span-6 sm:col-span-3">
                     <label for="telefono" class="block text-sm font-medium text-gray-700">Teléfono</label>
-                    <input type="text" name="telefono"  autocomplete="telefono" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                    <input type="text" required name="telefono"  autocomplete="telefono" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                   </div>
                   <div class="col-span-6 sm:col-span-3">
                     <label for="direccion" class="block text-sm font-medium text-gray-700">Dirección</label>
-                    <input type="text" name="direccion"  autocomplete="direccion" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                    <input type="text" required name="direccion"  autocomplete="direccion" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                   </div>
                
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">

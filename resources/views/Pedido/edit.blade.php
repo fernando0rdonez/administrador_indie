@@ -15,7 +15,7 @@
 <div class="container mx-auto">
  
     <div class="md:grid md:grid-cols-3 md:gap-6">
-      <div class="mt-5 md:mt-0 md:col-span-2">
+      <div class="mt-5 md:mt-0 md:col-span-3">
         <form action="{{route('pedido.edit',['pedido' => $pedido->id])}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="shadow overflow-hidden sm:rounded-md">
@@ -47,29 +47,55 @@
                     <label for="costo_envio" class="block text-sm font-medium text-gray-700">Costo envio</label>
                     <input type="text" name="costo_envio" value="{{$pedido->costo_envio}}"  autocomplete="costo_envio" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                   </div>
+
                 <div class="col-span-6 sm:col-span-3">
                     <label for="foto" class="block text-sm font-medium text-gray-700">Comprobante pago</label>
                     <input type="file" name="foto" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                   </div>
-                  <div class="col-span-6 sm:col-span-3">
-                    <div id="verPrescripcion" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  
+                  <div class="col-span-6 sm:col-span-3 ">
+                  <label for="estado" class="block text-sm font-medium text-gray-700">Estado</label>
+                  <select id="estado" name="estado" autocomplete="estado" class="mt-1 block w-full py-1 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="ENVIADA" {{$pedido->estado == 'ENVIADA' ? 'selected': ''}}>ENVIADA</option>
+                    <option value="PAGADA" {{$pedido->estado == 'PAGADA' ? 'selected': ''}}>PAGADA</option>
+                    <option value="PEDIDO" {{$pedido->estado == 'PEDIDO' ? 'selected': ''}}>PEDIDO</option>
+                  </select>
+                    
+                  </div>
+
+                  <div class="col-span-6 sm:col-span-3 ">
+                  <a href="{{'/pedido/'.$pedido->id.'/detalles'}}" ><div  class="inline-flex justify-center py-1 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                      Ver detalles orden
+                    </div></a>
+
+                    <a ><div id="verPrescripcion" class="inline-flex justify-center py-1 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                       Ver comprobante
-                    </div>
+                    </div></a>
                   </div>
             </div>
+
+
+            <div class="py-3">
+
             @foreach ($pedido->detalle as $item)
-            <div class="flex flex-row">
+            <div class="flex flex-row " >
                 <div class="justify-items-center">
-                    <img src={{$item->modelo->imagen}} class="w-20 h-20 rounded-full ">
+                    <img src="{{$item->modelo->imagen}}" class="w-20 h-20 rounded-full ">
                 </div>
-                 <input type="hidden" value={{$item->modelo->id}} name="modelo_id[]" class="col-span-1 m-1 border border-gray-400 rounded h-10" />
-                 <input type="number"  value={{$item->talla}} placeholder="Talla" name="talla[]" class="col-span-1 m-1 border border-gray-400 rounded  h-10 w-20" />
-                 <h1  class="col-span-1 m-1 border border-gray-400 h-10 w-20"> {{$item->modelo->nombre}} </h1>
-                 <input type="number" value={{$item->cantidad}} placeholder="Cantidad" name="cantidad[]" class="col-span-1 m-1 border border-gray-400 rounded-sm h-10 w-20" />
-                 <div class="rounded-md m-3 p-3 bg-green-500 cursor-pointer text-white  text-center">Min </div>
+                 <input type="hidden" value="{{$item->modelo->id}}" name="modelo_id[]" class="col-span-1 text-center  m-1 border border-gray-400 rounded h-10" />
+                 <input type="number"  value="{{$item->talla}}" placeholder="Talla" name="talla[]" class="col-span-1 text-center m-1 border border-gray-400 rounded  h-10 w-20" />
+                 <input type="number" value="{{$item->cantidad}}" placeholder="Cantidad" name="cantidad[]" class="col-span-1 text-center m-1 border border-gray-400 rounded-sm h-10 w-20" />
+                 <input type="number" value="{{$item->precio}}" placeholder="Precio" name="precio[]" class="col-span-1 text-center m-1 border border-gray-400 rounded-sm h-10 w-20" />
+                 <div class="rounded-md  p-3 bg-green-500 cursor-pointer text-white h-10  content-center"><i class="fas fa-window-minimize"></i> </div>
+                 <h1  class="col-span-1 m-1 border border-gray-400 h-10 w-40 p-2"> {{$item->modelo->nombre}} </h1>
     
             </div>
             @endforeach
+
+            </div>
+
+
+
            <div id="detalle" class="w-full"></div>
 
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
@@ -87,7 +113,7 @@
     Swal.fire({
   title: 'Comprobante pago!',
   text: 'Verifique los datos.',
-  imageUrl: 'http://127.0.0.1:8000'+$('#comprobante_img').val(),
+  imageUrl: 'http://34.72.134.255/'+$('#comprobante_img').val(),
   imageWidth: 400,
   imageHeight: 200,
   imageAlt: 'Comprobante',

@@ -24,7 +24,7 @@
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
                   <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
-                  <input type="text" name="nombre"  autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                  <input type="text" required name="nombre"  autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
   
                 <div class="col-span-6 sm:col-span-3">
@@ -34,7 +34,7 @@
   
                 <div class="col-span-6 sm:col-span-3">
                   <label for="color" class="block text-sm font-medium text-gray-700">Color</label>
-                  <input type="text" name="color"  autocomplete="color" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                  <input type="text" required name="color"  autocomplete="color" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
                 <div class="col-span-6 sm:col-span-3">
                     <label for="foto" class="block text-sm font-medium text-gray-700">Foto</label>

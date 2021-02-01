@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Modelo extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombre', 'superficie', 'reata_id', 'tipo', 'eva', 'fibra', 'genero', 'imagen', 'costo','valor','keywords'];
+    protected $fillable = ['nombre', 'superficie', 'reata_id', 'tipo', 'eva', 'fibra', 'genero', 'imagen', 'costo','valor','codigo','keywords'];
 
 
     public function reata (){

@@ -25,7 +25,8 @@ class MaterialesController extends Controller
         if ($request->has('date')) {
            $date =  $request->date;
         }
-        $pedidos =  Pedido::where('fecha_envio', $date )->get()->pluck('id');
+        $pedidos =  Pedido::where('fecha_envio', $date )->whereIn('estado', ['PAGADA', 'PEDIDO'])->get()->pluck('id');
+
         $detallePedido = DetallePedido::WhereIn('pedido_id',$pedidos)->get();
 
         $hombres = $detallePedido->filter(function ($detalle, $key) {

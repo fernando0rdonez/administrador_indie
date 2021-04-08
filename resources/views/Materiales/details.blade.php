@@ -40,9 +40,9 @@
                     <article class="overflow-hidden rounded-lg shadow-lg">
                             <img alt="Placeholder" class="block h-32 w-full" src="{{$item[0]->modelo->imagen}}">
  
-                        <header class="flex items-center justify-start leading-tight p-2 md:p-4">
+                        <header class="flex leading-tight p-2 md:p-4 flex-wrap">
                         @foreach ($item as $modelo)
-                        <div class="border p-1">
+                        <div class="border p-1 ">
                         <span class=" text-regular"> <i class="fas fa-shoe-prints fill-current"></i>: {{$modelo->talla}}</span><br>
                         <span class="text-regular"><i class="fab fa-cuttlefish"></i>: {{$modelo->cantidad}}</span>
                         </div>

@@ -84,6 +84,7 @@
             </td>
            
             <td class="border-grey-light border hover:bg-gray-100 p-3">
+            @csrf
                 <a href="{{'/pedido/'.$pedido->id}}" class="bg-indigo-500 text-white px-4 py-1 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black ">
                     Editar
                 </a>

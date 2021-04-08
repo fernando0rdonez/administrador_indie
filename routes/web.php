@@ -47,6 +47,7 @@ Route::get('/pedido/nuevo', [App\Http\Controllers\PedidoController::class,'new']
 Route::get('/pedido/update/{pedido}', [App\Http\Controllers\PedidoController::class,'update'])->name('pedido.update');
 Route::get('/pedido/{pedido}', [App\Http\Controllers\PedidoController::class,'show'])->name('pedido.show');
 Route::post('/pedido/{pedido}', [App\Http\Controllers\PedidoController::class,'edit'])->name('pedido.edit');
+Route::get('/pedido/detalle/{detallePedido}', [App\Http\Controllers\PedidoController::class,'destroy'])->name('detalle.destroy');
 Route::get('/pedido/{pedido}/detalles', [App\Http\Controllers\PedidoController::class,'detail'])->name('pedido.detail');
 
 Route::get('/materiales', [App\Http\Controllers\MaterialesController::class,'materiales'])->name('pedido.materiales');

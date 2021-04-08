@@ -16,7 +16,7 @@
  
     <div class="md:grid md:grid-cols-3 md:gap-6">
       <div class="mt-5 md:mt-0 md:col-span-3">
-        <form action="{{route('pedido.edit',['pedido' => $pedido->id])}}" method="POST" enctype="multipart/form-data">
+        <form id="pedidoguar" action="{{route('pedido.edit',['pedido' => $pedido->id])}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="shadow overflow-hidden sm:rounded-md">
             <div class="px-4 py-5 bg-white sm:p-6">
@@ -26,7 +26,7 @@
                   <input type="hidden" name="cliente_id" value={{$pedido->cliente_id}}   />
                   <input type="hidden" name="cliente"  value={{$pedido->clientes->nombre}}  />
                   <input type="hidden" id="comprobante_img"  value={{$pedido->comprobante}}  />
-                  <input type="text" value={{$pedido->clientes->nombre}} name="search"  autoComplete="off" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled> 
+                  <input type="text" value="{{$pedido->clientes->nombre}}" name="search"  autoComplete="off" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" disabled> 
 
                 </div>
   
@@ -56,9 +56,10 @@
                   <div class="col-span-6 sm:col-span-3 ">
                   <label for="estado" class="block text-sm font-medium text-gray-700">Estado</label>
                   <select id="estado" name="estado" autocomplete="estado" class="mt-1 block w-full py-1 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option value="ENVIADA" {{$pedido->estado == 'ENVIADA' ? 'selected': ''}}>ENVIADA</option>
-                    <option value="PAGADA" {{$pedido->estado == 'PAGADA' ? 'selected': ''}}>PAGADA</option>
-                    <option value="PEDIDO" {{$pedido->estado == 'PEDIDO' ? 'selected': ''}}>PEDIDO</option>
+                    <option class="py-1" value="ENVIADA" {{$pedido->estado == 'ENVIADA' ? 'selected': ''}}>ENVIADA</option>
+                    <option class="py-1" value="PAGADA" {{$pedido->estado == 'PAGADA' ? 'selected': ''}}>PAGADA</option>
+                    <option class="py-1" value="PEDIDO" {{$pedido->estado == 'PEDIDO' ? 'selected': ''}}>PEDIDO</option>
+                    <option class="py-1" value="CANCELADA" {{$pedido->estado == 'CANCELADA' ? 'selected': ''}}>CANCELADA</option>
                   </select>
                     
                   </div>
@@ -74,41 +75,67 @@
                   </div>
             </div>
 
-
-            <div class="py-3">
-
-            @foreach ($pedido->detalle as $item)
-            <div class="flex flex-row " >
-                <div class="justify-items-center">
-                    <img src="{{$item->modelo->imagen}}" class="w-20 h-20 rounded-full ">
-                </div>
-                 <input type="hidden" value="{{$item->modelo->id}}" name="modelo_id[]" class="col-span-1 text-center  m-1 border border-gray-400 rounded h-10" />
-                 <input type="number"  value="{{$item->talla}}" placeholder="Talla" name="talla[]" class="col-span-1 text-center m-1 border border-gray-400 rounded  h-10 w-20" />
-                 <input type="number" value="{{$item->cantidad}}" placeholder="Cantidad" name="cantidad[]" class="col-span-1 text-center m-1 border border-gray-400 rounded-sm h-10 w-20" />
-                 <input type="number" value="{{$item->precio}}" placeholder="Precio" name="precio[]" class="col-span-1 text-center m-1 border border-gray-400 rounded-sm h-10 w-20" />
-                 <div class="rounded-md  p-3 bg-green-500 cursor-pointer text-white h-10  content-center"><i class="fas fa-window-minimize"></i> </div>
-                 <h1  class="col-span-1 m-1 border border-gray-400 h-10 w-40 p-2"> {{$item->modelo->nombre}} </h1>
-    
-            </div>
-            @endforeach
-
-            </div>
-
-
-
            <div id="detalle" class="w-full"></div>
 
-            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-              <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <div class="px-4 py-1 bg-gray-50 text-right sm:px-6">
+              <button id="pedidoguar" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Guardar
               </button>
             </div>
           </div>
         </form>
+
+        <div class="shadow overflow-hidden sm:rounded-md">
+        <div class="px-4 py-3 bg-white sm:p-6">
+        
+        <div class="">
+            
+            @foreach ($pedido->detalle as $item)
+            <div class="flex flex-row " >
+
+               <table>
+               <tbody>
+               <tr>
+               <td><div class="justify-items-center">
+                    <img src="{{$item->modelo->imagen}}" class="w-12 h-12 rounded-full ">
+                </div></td>
+               <td><input type="hidden" value="{{$item->modelo->id}}" name="modelo_id[]" class="col-span-1 text-center  m-1 border border-gray-400 rounded h-10" /></td>
+               <td><input type="number"  value="{{$item->talla}}" placeholder="Talla" name="talla[]" class="col-span-1 text-center m-1 border border-gray-400 rounded  h-10 w-20" /></td>
+               <td> <input type="number" value="{{$item->cantidad}}" placeholder="Cantidad" name="cantidad[]" class="col-span-1 text-center m-1 border border-gray-400 rounded-sm h-10 w-20" /></td>
+               <td><input type="number" value="{{$item->precio}}" placeholder="Precio" name="precio[]" class="col-span-1 text-center m-1 border border-gray-400 rounded-sm h-10 w-20" /></td>
+               <td><h1  class="col-span-1 m-1 border border-gray-400 h-10 w-40 p-2"> {{$item->modelo->nombre}} </h1> </td>
+
+               <td>
+               
+               <form id="items" action="{{route('detalle.destroy',['detallePedido' => $item->id])}}" method="GET" enctype="multipart/form-data">
+               @csrf
+                  <input  type="hidden" name="detallePedido" value="{{$item->id}}" >
+                    <button id="iddetalle" class="rounded-md p-3 bg-red-700 h-10 cursor-pointer text-white  text-center fas fa-minus-circle " type="submit"></button>
+                 </form > </div>
+                 
+              </td>
+               </tr>
+               </tbody>
+               </table> 
+              </div>
+            @endforeach
+            </div>
+            </div>
+            </div>
+
+
+
+
+
+        
       </div>
+      
+
+
     </div>
   </div>
 <script>
+
   $("#verPrescripcion").click(function(){
     Swal.fire({
   title: 'Comprobante pago!',
@@ -119,6 +146,10 @@
   imageAlt: 'Comprobante',
 })
 });
+
+
+
+
 
 
 </script>

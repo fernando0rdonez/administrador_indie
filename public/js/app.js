@@ -66980,6 +66980,7 @@ var DetallePedido = function DetallePedido() {
       item: item
     });
     setPedido(newList);
+    setRespuesta([]);
   };
 
   var handleMin = function handleMin(item) {
@@ -66997,6 +66998,7 @@ var DetallePedido = function DetallePedido() {
     className: "p-2 m-3 border-green-400 border "
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
     type: "text",
+    id: "searc",
     name: "search",
     placeholder: "Busca modelo",
     onChange: _onChange,
@@ -67054,45 +67056,45 @@ var ItemPedido = function ItemPedido(_ref) {
       index = _ref.index,
       handleMin = _ref.handleMin;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "flex flex-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "flex flex-row "
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "justify-items-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: data.imagen,
-    className: "w-20 h-20 rounded-full "
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "w-12 h-12 rounded-full "
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "hidden",
     value: data.id,
     name: "modelo_id[]",
-    className: "col-span-1 m-1 border border-gray-400 rounded h-10"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "col-span-1 m-1 border text-center  border-gray-400 rounded h-10"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "  ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "number",
     required: true,
     placeholder: "Talla",
     name: "talla[]",
-    className: "col-span-1 m-1 border border-gray-400 rounded  h-10 w-10"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-    className: "col-span-1 m-1 border border-gray-400 h-10 w-40"
-  }, " ", data.nombre, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "col-span-1 m-1 text-center  border border-gray-400 rounded  h-10 w-20"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "col-span-1 m-1 border border-gray-400 h-10 w-40 p-2"
+  }, " ", data.nombre, " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "number",
     required: true,
     placeholder: "Cantidad",
     name: "cantidad[]",
-    className: "col-span-1 m-1 border border-gray-400 rounded-sm h-10 w-10"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "col-span-1 m-1 border text-center  border-gray-400 rounded-sm h-10 w-20"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "  ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "precio",
     required: true,
     placeholder: "Precio",
     name: "precio[]",
-    className: "col-span-1 m-1 border border-gray-400 rounded-sm h-10 w-10"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "rounded-md m-3 p-3 bg-green-200 cursor-pointer text-white  text-center",
+    className: "col-span-1 m-1 border text-center  border-gray-400 rounded-sm h-10 w-20"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "  ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "rounded-md p-3 bg-red-700 h-10 cursor-pointer text-white  text-center",
     onClick: function onClick() {
       return handleMin(index);
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-    "class": "fab fa-cuttlefish text-white"
-  }), " "));
+    "class": "fas fa-minus-circle text-black"
+  })))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (ItemPedido);
@@ -67121,7 +67123,7 @@ var ItemSearch = function ItemSearch(_ref) {
     className: "col-span-1 justify-items-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: item.imagen,
-    className: "w-20 h-20 rounded-full "
+    className: "w-12 h-12 rounded-full"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-span-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
@@ -67135,7 +67137,7 @@ var ItemSearch = function ItemSearch(_ref) {
   }, " Genero: ", item.genero))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-span-1 justify-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "rounded-md m-3 p-3 bg-green-500 cursor-pointer text-white  text-center",
+    className: "rounded-md m-2 p-2 bg-green-500 cursor-pointer text-white  text-center",
     onClick: function onClick() {
       return handleAdd(item);
     }

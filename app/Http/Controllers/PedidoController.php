@@ -106,7 +106,8 @@ class PedidoController extends Controller
            $detallePedido->precio    =  $precio[$key];
            $detallePedido->cantidad  =  $cantidad[$key];
            $detallePedido->save();
-           $total =  $total + ($detallePedido->cantidad  * $detallePedido->modelo->valor);
+           $total =  $total + ($detallePedido->cantidad  * $detallePedido->precio);
+           //$total =  $total + ($detallePedido->cantidad  * $detallePedido->modelo->valor);
         }
         $pedido->total = $total;
         $pedido->save();
@@ -122,6 +123,7 @@ class PedidoController extends Controller
 
         return back()->with('success', 'Pedido creado exitosamente');
     }
+
     public function update(Request $request, Pedido $pedido)
     {
         //$id = $request->pedido;
@@ -130,9 +132,8 @@ class PedidoController extends Controller
         //$pedido = Pedido::where('id', $id)->first();
         $pedido->estado = 'ENVIADA';
         $pedido->save();
-        return back()->with('success', 'Pedido actualizado exitosamente');;
+        return back()->with('success', 'Estado del pedido actualizado exitosamente');
     }
-
 
     
     public function edit(Request $request, Pedido $pedido)
@@ -145,7 +146,7 @@ class PedidoController extends Controller
             'observaciones'       => 'string|max:50',            
             'fecha_envio'         => 'required|date',            
             'cliente_id'          => 'integer',  
-            'estado'              => 'required|in:PEDIDO,PAGADA,ENVIADA',
+            'estado'              => 'required|in:PEDIDO,PAGADA,ENVIADA,CANCELADA',
             'modelo_id'           => 'required|array',
             'modelo_id.*'         => 'required|integer|min:0',
             'precio'              => 'required|array', 
@@ -180,10 +181,18 @@ class PedidoController extends Controller
            $detallePedido->pedido_id =  $pedido->id;
            $detallePedido->modelo_id =  $modelos[$key];
            $detallePedido->talla     =  $talla[$key];
-           $detallePedido->precio    =  $precio[$key];
+           $detallePedido->precio = $precio[$key];
            $detallePedido->cantidad  =  $cantidad[$key];
            $detallePedido->save();
-           $total =  $total + ($detallePedido->cantidad  * $detallePedido->modelo->valor);
+
+
+
+           if ($precio[$key] == 0) {
+            $total =  $total + ($detallePedido->cantidad  * $detallePedido->modelo->valor);
+      
+           } else {
+            $total =  $total + ($detallePedido->cantidad  * $detallePedido->precio);
+           }
         }
         $pedido->total = $total;
         $pedido->save();
@@ -197,6 +206,13 @@ class PedidoController extends Controller
             $pedido->save();
         }
 
-        return back()->with('success', 'Pedido creado exitosamente');
+        return back()->with('success', 'Pedido actualizado exitosamente');
+    }
+
+    public function destroy(DetallePedido $detallePedido )
+    {
+        \Log::info($detallePedido);
+        $detallePedido->delete();
+        return back()->with('success', 'Item eliminado correctamente');
     }
 }

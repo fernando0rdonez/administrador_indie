@@ -10,8 +10,6 @@ const DetallePedido = () =>{
     const [pedido, setPedido] = useState([]);
     const [show, setShow] = useState(false);
 
-
-
     const _search =  (value) => {   
         return axios.get(`/modelo/search?value=${value}`).then(
             response => {
@@ -34,12 +32,12 @@ const DetallePedido = () =>{
         }else{
             setRespuesta([])
         }
-        
-    
     }
+
     const  handleAdd = (item) => {
         const newList = pedido.concat({ item });
         setPedido(newList);
+        setRespuesta([]);
     }
 
     const  handleMin = (item) => {
@@ -55,7 +53,7 @@ const DetallePedido = () =>{
         <>
         <div className="flex flex-col">
             <div className="p-2 m-3 border-green-400 border ">
-                 <input type="text" name="search" placeholder="Busca modelo" onChange={_onChange} autoComplete="off" className="w-full"></input> 
+                 <input type="text" id="searc" name="search" placeholder="Busca modelo" onChange={_onChange} autoComplete="off" className="w-full"></input> 
             </div>   
             {respuesta.map((data,index) => {
                     if (data) {
@@ -78,7 +76,6 @@ const DetallePedido = () =>{
         
     );
 }
-
 
 export default DetallePedido;
 
